@@ -1,0 +1,33 @@
+#include <stdlib.h>
+/**
+ *_strdup - returns a pointer which contains a copy of the str
+ *@str: string
+ *Return: strdup
+ */
+char *_strdup(char *str)
+{
+	char *strdup;
+	int i, j;
+
+	i = j = 0;
+	if (!str)
+	{
+		return (NULL);
+	}
+	while (str[j])
+	{
+		j++;
+	}
+	strdup = malloc((sizeof(char) * j + 1));
+	if (!strdup)
+	{
+		return (NULL);
+	}
+	while (str[i])
+	{
+		strdup[i] = str[i];
+		i++;
+	}
+	strdup[i] = '\0';
+	return (strdup);
+}
