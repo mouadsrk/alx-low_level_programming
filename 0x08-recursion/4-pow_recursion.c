@@ -1,18 +1,18 @@
+# include "main.h"
+
 /**
- *_pow_recursion - returns the value of x raised to the power of y
- *@x: num1
- *@y: num2
- *Return: x**y
+ * _pow_recursion - function returns the value of x raised to the power of y
+ * @x: the value to multiply
+ * @y: the times to multiply the value
+ *
+ * Return: the vaue multiplied y times
  */
+
 int _pow_recursion(int x, int y)
 {
 	if (y < 0)
-	{
 		return (-1);
-	}
 	if (y == 0)
-	{
 		return (1);
-	}
 	return (x * _pow_recursion(x, y - 1));
 }

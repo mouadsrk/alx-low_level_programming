@@ -1,30 +1,34 @@
+# include "main.h"
+# include <stdio.h>
+
+int check_prime(int n, int b);
+
 /**
- *is_prime - is a prime number
- *@n: num1
- *@m: num2
- *Return: 0 or 1
- */
-int is_prime(int n, int m)
-{
-	if (m == 1)
-	{
-		return (1);
-	}
-	if ((n % m == 0 && m > 0) || n <= 1)
-	{
-		return (0);
-	}
-	else
-	{
-		return (is_prime(n, m - 1));
-	}
-}
-/**
- *is_prime_number - returns the natural square root of a number
- *@n: num
- *Return: 1 or 0
+ * is_prime_number - returns if a number is prime
+ * @n: the number to be checked
+ *
+ * Return: value
  */
 int is_prime_number(int n)
 {
-return (is_prime(n, n - 1));
+	return (check_prime(n, 1));
+}
+
+/**
+ * check_prime - check if number is prime
+ * @n: the number to be checked
+ * @b: the iteration times
+ *
+ * Return: 1 for prime or 0 composite
+ */
+
+int check_prime(int n, int b)
+{
+	if (n <= 1)
+		return (0);
+	if (n % b == 0 && b > 1)
+		return (0);
+	if ((n / b) < b)
+		return (1);
+	return (check_prime(n, b + 1));
 }
